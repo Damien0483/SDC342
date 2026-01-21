@@ -23,6 +23,9 @@ df["price_category"] = pd.cut(df["price"], bins=bins, labels=labels, include_low
 X = df.drop(columns=["price", "price_category"])
 y = df["price_category"]
 
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
 # -----------------------------
 # 3. Train-test split (80/20)
 # -----------------------------
